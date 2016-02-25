@@ -14,36 +14,56 @@
  * limitations under the License.
  */
 
-function refreshBalance() {
-    $.ajax({
+function refreshBalance()
+{
+  $.ajax
+(
+    {
        url: 'account',
-       method: 'GET',                   
-       success: function(data) {
-           $('#balance').text(data);
+       method:'GET',                   
+       success:function(data) 
+       {
+         $('#balance').text(data);
        }
-    });
+    }
+);
 }
-function withdraw() {
-    $.ajax({
+
+function withdraw() 
+{
+  $.ajax
+  (
+    {
        url: 'account',
        method: 'POST',
        data: { 'withdraw' : $('#withdraw').val()},
        success: refreshBalance
-    });
+    }
+   );
 }
-function deposit() {
-    $.ajax({
+
+function deposit() 
+{
+    $.ajax
+(
+    {
        url: 'account',
        method: 'POST',
        data: { 'deposit' : $('#deposit').val()},
        success: refreshBalance
-    });
+    }
+);
 }
-function closeAccount() {
-    $.ajax({
+
+function closeAccount() 
+{
+    $.ajax
+(
+    {
        url: 'account',
        method: 'POST',
        data: { 'close' : true },
        success: refreshBalance
-    });
+    }
+);
 }

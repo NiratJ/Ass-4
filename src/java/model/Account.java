@@ -22,35 +22,48 @@ import javax.faces.bean.ApplicationScoped;
  * Stores an account balance and provides some basic methods to manipulate the balance
  */
 @ApplicationScoped
-public class Account {
+public class Account
+{
     /**
      * Returns the current total balance of the account
      * @return - the balance
      */
-    public double getBalance() {
-        return -999;
+    
+    private double balance;
+    
+    public Account()
+    {
+        this.balance =0.00;
+    }
+    
+    public double getBalance()
+    {
+        return balance;
     }
     
     /**
      * Adds an amount of cash to the total balance of the account
      * @param cash - the cash to deposit
      */
-    public void deposit(double cash) {
-        
+    public void deposit(double cash)
+    {
+       balance =balance + cash; 
     }
     
     /**
      * Deducts an amount of cash from the total balance of the account
      * @param cash - the cash to withdraw
      */
-    public void withdraw(double cash) {
-    
+    public void withdraw(double cash)
+    {
+        balance =balance - cash;
     }
     
     /**
      * Deducts all cash from the total balance of the account
      */
-    public void close() {
-        
+    public void close()
+    {
+        balance =0;
     }
 }
